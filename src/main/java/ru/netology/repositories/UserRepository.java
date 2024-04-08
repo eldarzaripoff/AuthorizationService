@@ -1,5 +1,6 @@
 package ru.netology.repositories;
 
+import org.springframework.stereotype.Repository;
 import ru.netology.helpers.Authorities;
 import ru.netology.helpers.User;
 
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@Repository
 public class UserRepository {
     Map<User, List<Authorities>> userListMap = new HashMap<>();
 

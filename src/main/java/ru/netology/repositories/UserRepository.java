@@ -27,4 +27,16 @@ public class UserRepository {
         }
         return new ArrayList<>();
     }
+
+    public List<Authorities> getUserAuthorities(User user) {
+        if (user == null) {
+            return new ArrayList<>();
+        }
+        for (Map.Entry<User, List<Authorities>> entry: userListMap.entrySet()) {
+            if (entry.getKey().getName().equals(user.getName()) && entry.getKey().getPassword().equals(user.getPassword())) {
+                return entry.getValue();
+            }
+        }
+        return new ArrayList<>();
+    }
 }

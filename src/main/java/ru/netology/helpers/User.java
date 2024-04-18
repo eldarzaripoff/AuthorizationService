@@ -3,9 +3,10 @@ package ru.netology.helpers;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.Objects;
-
+@Validated
 public class User {
     @NotBlank(message = "User name is required")
     String name;
@@ -18,12 +19,23 @@ public class User {
         this.password = password;
     }
 
+    public User() {
+    }
+
     public String getName() {
         return name;
     }
 
     public String getPassword() {
         return password;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

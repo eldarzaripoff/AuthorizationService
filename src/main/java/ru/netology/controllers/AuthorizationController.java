@@ -6,15 +6,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ru.netology.helpers.Authorities;
+import ru.netology.helpers.SplitUser;
 import ru.netology.helpers.User;
 import ru.netology.selfMadeExceptions.InvalidCredentials;
 import ru.netology.selfMadeExceptions.UnauthorizedUser;
 import ru.netology.services.AuthorizationService;
 
 import java.util.List;
-
-@RestController
 @Validated
+@RestController
 public class AuthorizationController {
     private final AuthorizationService service;
 
@@ -23,7 +23,7 @@ public class AuthorizationController {
     }
 
     @GetMapping("/authorize")
-    public List<Authorities> getAuthorities(@Valid User user) {
+    public List<Authorities> getAuthorities(@Valid @SplitUser User user) {
         return service.getAuthorities(user);
     }
 

@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.Objects;
-@Validated
+
 public class User {
     @NotBlank(message = "User name is required")
     String name;
